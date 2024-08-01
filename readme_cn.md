@@ -56,6 +56,7 @@ CD D:\AIPlayground\AI-Playground\service
 Anaconda Prompt命令行窗口
 pip install -r requirements-arc.txt
 ```
+
 英特尔Core Ultra-H处理器
 ```cmd
 Anaconda Prompt命令行窗口
@@ -72,32 +73,33 @@ https://github.com/Nuullll/intel-extension-for-pytorch/releases/tag/v2.1.20%2Bmt
 
 使用pip Install命令安装所有下载的whl文件
 
-下载时可通过辅助工具wget，这样可以断点续传
+Anaconda Prompt命令行窗口内切换路径到下载路径，等待后续操作
 
+提示：下载时可通过辅助工具wget，这样可以断点续传
 wget工具：https://eternallybored.org/misc/wget/
-
 wget命令行断点续传命令：wget 下载连接 -c
 
 英特尔Arc A系列独立显卡安装扩展包命令示范
 ```cmd
 Anaconda Prompt命令行窗口
-pip install intel_extension_for_pytorch-2.1.10+xpu-cp310-cp310-win_amd64.whl
-pip install torch-2.1.0a0+git7bcf7da-cp310-cp310-win_amd64.whl
-pip install torchaudio-2.1.0+6ea1133-cp310-cp310-win_amd64.whl
-pip install torchvision-0.16.0+fbb4cc5-cp310-cp310-win_amd64.whl
+pip install "intel_extension_for_pytorch-2.1.10+xpu-cp310-cp310-win_amd64.whl"
+pip install "torch-2.1.0a0+cxx11.abi-cp310-cp310-win_amd64.whl"
+pip install "torchaudio-2.1.0a0+cxx11.abi-cp310-cp310-win_amd64.whl"
+pip install "torchvision-0.16.0a0+cxx11.abi-cp310-cp310-win_amd64.whl"
 ```
 
 英特尔Core Ultra-H处理器安装扩展包命令示范
 ```cmd
 Anaconda Prompt命令行窗口
-pip install intel_extension_for_pytorch-2.1.20+git4849f3b-cp310-cp310-win_amd64.whl
-pip install torch-2.1.0a0+cxx11.abi-cp310-cp310-win_amd64.whl
-pip install torchaudio-2.1.0a0+cxx11.abi-cp310-cp310-win_amd64.whl
-pip install torchvision-0.16.0a0+cxx11.abi-cp310-cp310-win_amd64.whl
+pip install "intel_extension_for_pytorch-2.1.20+git4849f3b-cp310-cp310-win_amd64.whl"
+pip install "torch-2.1.0a0+git7bcf7da-cp310-cp310-win_amd64.whl"
+pip install "torchaudio-2.1.0+6ea1133-cp310-cp310-win_amd64.whl"
+pip install "torchvision-0.16.0+fbb4cc5-cp310-cp310-win_amd64.whl"
 ```
 
-4. 检查XPU环境是否正确
+4. 检查XPU环境是否正确（这里可以看到默认安装位置）
 ```cmd
+Anaconda Prompt命令行窗口
 python -c "import torch; import intel_extension_for_pytorch as ipex; print(torch.version); print(ipex.version); [print(f'[{i}]: {torch.xpu.get_device_properties(i)}') for i in range(torch.xpu.device_count())];"
 ```
 
@@ -111,9 +113,15 @@ Anaconda Prompt命令行窗口
 conda env list|findstr aipg_xpu
 ```
 
+```cmd
+Anaconda Prompt命令行窗口返回默认参考结果
+aipg_xpu              *  C:\ProgramData\anaconda3\envs\aipg_xpu
+```
+
 3. 根据获得的环境路径，运行以下命令以创建env文件链接
 ```
 mklink /J "./env" "{aipg_xpu_env_path}"
+参考：mklink /J "./env" "C:\ProgramData\anaconda3\envs\aipg_xpu"
 ```
 
 ### WebUI (nodejs + electron)
@@ -122,6 +130,7 @@ mklink /J "./env" "{aipg_xpu_env_path}"
 https://nodejs.org/dist/v20.16.0/node-v20.16.0-x64.msi
 
 2. 切换到WebUI目录并安装所有Nodejs依赖项。
+参考路径：D:\AIPlayground\AI-Playground\WebUI>
 
 A、直接安装（这个可能会很慢，原因是使用了国外的源镜像）
 ```cmd
@@ -163,7 +172,7 @@ npm run dev
 ```
 
 ## 模型支撑
-AI Playground支持PyTorch LLM、SD1.5和SDXL型号。AI Playground不附带任何模型，但可以直接从界面或通过用户从CivitAI.com的HuggingFace.com下载模型并将其放置在适当的模型文件夹中间接提供所有功能的模型。 
+AI Playground支持PyTorch LLM、SD1.5和SDXL型号。AI Playground不附带任何模型，但可以直接从界面或通过用户从CivitAI.com的HuggingFace.com下载模型并将其放置在适当的模型文件夹中，间接提供所有功能的模型。 
 
 当前从应用程序链接的模型 
 | 模型                                      | 许可协议                                                                                                                                                                      | 背景信息/型号卡                                                                                      |

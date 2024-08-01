@@ -65,15 +65,17 @@ pip install -r requirements-ultra.txt
 
 4. 下载英特尔Pytorch*AOT扩展包。根据您的硬件，请从以下链接下载cp310 whl文件。
 
-英特尔Arc A系列独立显卡
+英特尔Arc A系列独立显卡扩展包下载地址：
+
 https://github.com/Nuullll/intel-extension-for-pytorch/releases/tag/v2.1.10%2Bxpu
 
-英特尔Core Ultra-H处理器
+英特尔Core Ultra-H处理器扩展包下载地址：
+
 https://github.com/Nuullll/intel-extension-for-pytorch/releases/tag/v2.1.20%2Bmtl%2Boneapi
 
 使用pip Install命令安装所有下载的whl文件
 
-Anaconda Prompt命令行窗口内切换路径到下载路径，等待后续操作
+Anaconda Prompt命令行窗口内切换路径到下载路径，等待下载全部完成后执行后续操作
 
 提示：下载时可通过辅助工具wget，这样可以断点续传
 wget工具：https://eternallybored.org/misc/wget/

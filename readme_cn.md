@@ -122,6 +122,7 @@ aipg_xpu              *  C:\ProgramData\anaconda3\envs\aipg_xpu
 
 3. 根据获得的环境路径，运行以下命令以创建env文件链接
 ```
+Anaconda Prompt命令行窗口
 mklink /J "./env" "{aipg_xpu_env_path}"
 参考：mklink /J "./env" "C:\ProgramData\anaconda3\envs\aipg_xpu"
 ```
